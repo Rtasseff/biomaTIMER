@@ -1,0 +1,370 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D1E2F3A4B5C6789DEF01234 /* biomaTIMERApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6B7C8D9E0F1234A5B6C7D8 /* biomaTIMERApp.swift */; };
+		1D1E2F3A4B5C6789DEF01235 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6B7C8D9E0F1234A5B6C7D9 /* ContentView.swift */; };
+		1D1E2F3A4B5C6789DEF01236 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A6B7C8D9E0F1234A5B6C7DA /* Assets.xcassets */; };
+		1D1E2F3A4B5C6789DEF01237 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A6B7C8D9E0F1234A5B6C7DB /* Preview Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4E1F2A3B4C5D6789E0F1A2B3 /* biomaTIMER.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = biomaTIMER.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A6B7C8D9E0F1234A5B6C7D8 /* biomaTIMERApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = biomaTIMERApp.swift; sourceTree = "<group>"; };
+		5A6B7C8D9E0F1234A5B6C7D9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5A6B7C8D9E0F1234A5B6C7DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5A6B7C8D9E0F1234A5B6C7DB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5A6B7C8D9E0F1234A5B6C7DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3E4F5A6B7C8D9E0F12345678 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2D3E4F5A6B7C8D9E0F123456 = {
+			isa = PBXGroup;
+			children = (
+				6B7C8D9E0F123456A7B8C9DA /* biomaTIMER */,
+				9E0F123456A7B8C9DA1E2F3A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6B7C8D9E0F123456A7B8C9DA /* biomaTIMER */ = {
+			isa = PBXGroup;
+			children = (
+				5A6B7C8D9E0F1234A5B6C7DC /* Info.plist */,
+				5A6B7C8D9E0F1234A5B6C7D8 /* biomaTIMERApp.swift */,
+				5A6B7C8D9E0F1234A5B6C7D9 /* ContentView.swift */,
+				5A6B7C8D9E0F1234A5B6C7DA /* Assets.xcassets */,
+				8E9F0A1B2C3D4567890ABCDE /* Preview Content */,
+			);
+			path = biomaTIMER;
+			sourceTree = "<group>";
+		};
+		8E9F0A1B2C3D4567890ABCDE /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				5A6B7C8D9E0F1234A5B6C7DB /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9E0F123456A7B8C9DA1E2F3A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4E1F2A3B4C5D6789E0F1A2B3 /* biomaTIMER.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0F123456A7B8C9DA1E2F3A4B /* biomaTIMER */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D9E0F123456A7B8C9DA1E2F /* Build configuration list for PBXNativeTarget "biomaTIMER" */;
+			buildPhases = (
+				7C8D9E0F123456A7B8C9DA1E /* Sources */,
+				3E4F5A6B7C8D9E0F12345678 /* Frameworks */,
+				A1B2C3D4E5F678901A2B3C4D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = biomaTIMER;
+			productName = biomaTIMER;
+			productReference = 4E1F2A3B4C5D6789E0F1A2B3 /* biomaTIMER.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1234567890ABCDEF12345678 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					0F123456A7B8C9DA1E2F3A4B = {
+						CreatedOnToolsVersion = 15.4;
+					};
+				};
+			};
+			buildConfigurationList = F678901A2B3C4D5E6F789012 /* Build configuration list for PBXProject "biomaTIMER" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2D3E4F5A6B7C8D9E0F123456;
+			productRefGroup = 9E0F123456A7B8C9DA1E2F3A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0F123456A7B8C9DA1E2F3A4B /* biomaTIMER */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A1B2C3D4E5F678901A2B3C4D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D1E2F3A4B5C6789DEF01237 /* Preview Assets.xcassets in Resources */,
+				1D1E2F3A4B5C6789DEF01236 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7C8D9E0F123456A7B8C9DA1E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D1E2F3A4B5C6789DEF01234 /* biomaTIMERApp.swift in Sources */,
+				1D1E2F3A4B5C6789DEF01235 /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		B2C3D4E5F678901A2B3C4D5E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B2C3D4E5F678901A2B3C4D5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C3D4E5F678901A2B3C4D5E6F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"biomaTIMER/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = biomaTIMER/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rtasseff.biomaTIMER;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C3D4E5F678901A2B3C4D5E70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"biomaTIMER/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = biomaTIMER/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rtasseff.biomaTIMER;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F678901A2B3C4D5E6F789012 /* Build configuration list for PBXProject "biomaTIMER" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2C3D4E5F678901A2B3C4D5E /* Debug */,
+				B2C3D4E5F678901A2B3C4D5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8D9E0F123456A7B8C9DA1E2F /* Build configuration list for PBXNativeTarget "biomaTIMER" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3D4E5F678901A2B3C4D5E6F /* Debug */,
+				C3D4E5F678901A2B3C4D5E70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin PBXNativeTarget section */
+		0F123456A7B8C9DA1E2F3A4B /* biomaTIMER */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D9E0F123456A7B8C9DA1E2F /* Build configuration list for PBXNativeTarget "biomaTIMER" */;
+			buildPhases = (
+				7C8D9E0F123456A7B8C9DA1E /* Sources */,
+				3E4F5A6B7C8D9E0F12345678 /* Frameworks */,
+				A1B2C3D4E5F678901A2B3C4D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = biomaTIMER;
+			productName = biomaTIMER;
+			productReference = 4E1F2A3B4C5D6789E0F1A2B3 /* biomaTIMER.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1234567890ABCDEF12345678 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					0F123456A7B8C9DA1E2F3A4B = {
+						CreatedOnToolsVersion = 15.4;
+					};
+				};
+			};
+			buildConfigurationList = F678901A2B3C4D5E6F789012 /* Build configuration list for PBXProject "biomaTIMER" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2D3E4F5A6B7C8D9E0F123456;
+			productRefGroup = 9E0F123456A7B8C9DA1E2F3A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0F123456A7B8C9DA1E2F3A4B /* biomaTIMER */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A1B2C3D4E5F678901A2B3C4D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D1E2F3A4B5C6789DEF01237 /* Preview Assets.xcassets in Resources */,
+				1D1E2F3A4B5C6789DEF01236 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7C8D9E0F123456A7B8C9DA1E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D1E2F3A4B5C6789DEF01234 /* biomaTIMERApp.swift in Sources */,
+				1D1E2F3A4B5C6789DEF01235 /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+	};
+	rootObject = 1234567890ABCDEF12345678 /* Project object */;
+}
