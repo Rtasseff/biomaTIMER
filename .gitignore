@@ -1,0 +1,62 @@
+# Xcode
+build/
+DerivedData/
+*.xcworkspace
+*.xcuserstate
+*.xccheckout
+*.moved-aside
+*.xcuserdatad
+
+# Swift Package Manager
+.swiftpm/
+Packages/
+Package.resolved
+
+# CocoaPods (if used)
+Pods/
+Podfile.lock
+
+# Carthage (if used)
+Carthage/
+
+# Fastlane (if used)
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# Archives
+*.xcarchive
+
+# iOS specific
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# User-specific
+*.orig
+*.swp
+*.swo
+*.DS_Store
+*.env
+*.key
+
+# Logs
+*.log
+
+# Generated CSV exports (if stored locally)
+*.csv
+
+# Xcode Preview files
+.idea/
+*.preview-thumbnails
+
+# Core Data SQLite files (if generated and stored locally, not committed)
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+
