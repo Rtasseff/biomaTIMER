@@ -7,64 +7,83 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		142E4B342C8E5D7F00ABCDEF /* biomaTIMERApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142E4B332C8E5D7F00ABCDEF /* biomaTIMERApp.swift */; };
-		142E4B362C8E5D7F00ABCDEF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142E4B352C8E5D7F00ABCDEF /* ContentView.swift */; };
-		142E4B382C8E5D8000ABCDEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 142E4B372C8E5D8000ABCDEF /* Assets.xcassets */; };
-		142E4B3B2C8E5D8000ABCDEF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 142E4B3A2C8E5D8000ABCDEF /* Preview Assets.xcassets */; };
-		142E4B3D2C8E5D8000ABCDEF /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 142E4B3B2C8E5D8000ABCDEF /* DataModel.xcdatamodeld */; };
-		142E4B472C8E5D8000ABCDEF /* biomaTIMERTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142E4B462C8E5D8000ABCDEF /* biomaTIMERTests.swift */; };
-		142E4B512C8E5D8000ABCDEF /* biomaTIMERUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142E4B502C8E5D8000ABCDEF /* biomaTIMERUITests.swift */; };
-		142E4B532C8E5D8000ABCDEF /* biomaTIMERUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142E4B522C8E5D8000ABCDEF /* biomaTIMERUITestsLaunchTests.swift */; };
+		A1234567890ABCDEF01234567 /* biomaTIMERApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1234567890ABCDEF01234567 /* biomaTIMERApp.swift */; };
+		A1234567890ABCDEF01234568 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1234567890ABCDEF01234568 /* ContentView.swift */; };
+		A1234567890ABCDEF01234569 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1234567890ABCDEF01234569 /* TimerModel.swift */; };
+		A1234567890ABCDEF0123456A /* TimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1234567890ABCDEF0123456A /* TimerService.swift */; };
+		A1234567890ABCDEF0123456B /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1234567890ABCDEF0123456B /* PersistenceController.swift */; };
+		A1234567890ABCDEF0123456C /* BackgroundTaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1234567890ABCDEF0123456C /* BackgroundTaskService.swift */; };
+		A1234567890ABCDEF0123456D /* MainTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1234567890ABCDEF0123456D /* MainTimerView.swift */; };
+		A1234567890ABCDEF0123456E /* ProjectEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1234567890ABCDEF0123456E /* ProjectEditorView.swift */; };
+		A1234567890ABCDEF0123456F /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1234567890ABCDEF0123456F /* HistoryView.swift */; };
+		A1234567890ABCDEF01234570 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1234567890ABCDEF01234570 /* SettingsView.swift */; };
+		A1234567890ABCDEF01234571 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1234567890ABCDEF01234571 /* Date+Extensions.swift */; };
+		A1234567890ABCDEF01234572 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1234567890ABCDEF01234572 /* Assets.xcassets */; };
+		A1234567890ABCDEF01234573 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1234567890ABCDEF01234573 /* Preview Assets.xcassets */; };
+		A1234567890ABCDEF01234574 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B1234567890ABCDEF01234574 /* DataModel.xcdatamodeld */; };
+		A1234567890ABCDEF01234575 /* biomaTIMERTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1234567890ABCDEF01234575 /* biomaTIMERTests.swift */; };
+		A1234567890ABCDEF01234576 /* biomaTIMERUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1234567890ABCDEF01234576 /* biomaTIMERUITests.swift */; };
+		A1234567890ABCDEF01234577 /* biomaTIMERUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1234567890ABCDEF01234577 /* biomaTIMERUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		142E4B432C8E5D8000ABCDEF /* PBXContainerItemProxy */ = {
+		C1234567890ABCDEF01234567 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 142E4B282C8E5D7F00ABCDEF /* Project object */;
+			containerPortal = D1234567890ABCDEF01234567 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 142E4B2F2C8E5D7F00ABCDEF;
+			remoteGlobalIDString = E1234567890ABCDEF01234567;
 			remoteInfo = biomaTIMER;
 		};
-		142E4B4D2C8E5D8000ABCDEF /* PBXContainerItemProxy */ = {
+		C1234567890ABCDEF01234568 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 142E4B282C8E5D7F00ABCDEF /* Project object */;
+			containerPortal = D1234567890ABCDEF01234567 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 142E4B2F2C8E5D7F00ABCDEF;
+			remoteGlobalIDString = E1234567890ABCDEF01234567;
 			remoteInfo = biomaTIMER;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		142E4B302C8E5D7F00ABCDEF /* biomaTIMER.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = biomaTIMER.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		142E4B332C8E5D7F00ABCDEF /* biomaTIMERApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = biomaTIMERApp.swift; sourceTree = "<group>"; };
-		142E4B352C8E5D7F00ABCDEF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		142E4B372C8E5D8000ABCDEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		142E4B3A2C8E5D8000ABCDEF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		142E4B3C2C8E5D8000ABCDEF /* DataModel.xcdatamodeld */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodeld; sourceTree = "<group>"; };
-		142E4B422C8E5D8000ABCDEF /* biomaTIMERTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = biomaTIMERTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		142E4B462C8E5D8000ABCDEF /* biomaTIMERTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = biomaTIMERTests.swift; sourceTree = "<group>"; };
-		142E4B4C2C8E5D8000ABCDEF /* biomaTIMERUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = biomaTIMERUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		142E4B502C8E5D8000ABCDEF /* biomaTIMERUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = biomaTIMERUITests.swift; sourceTree = "<group>"; };
-		142E4B522C8E5D8000ABCDEF /* biomaTIMERUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = biomaTIMERUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		142E4B5F2C8E5E3700ABCDEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B1234567890ABCDEF01234567 /* biomaTIMERApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = biomaTIMERApp.swift; sourceTree = "<group>"; };
+		B1234567890ABCDEF01234568 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B1234567890ABCDEF01234569 /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
+		B1234567890ABCDEF0123456A /* TimerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerService.swift; sourceTree = "<group>"; };
+		B1234567890ABCDEF0123456B /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		B1234567890ABCDEF0123456C /* BackgroundTaskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTaskService.swift; sourceTree = "<group>"; };
+		B1234567890ABCDEF0123456D /* MainTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTimerView.swift; sourceTree = "<group>"; };
+		B1234567890ABCDEF0123456E /* ProjectEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectEditorView.swift; sourceTree = "<group>"; };
+		B1234567890ABCDEF0123456F /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		B1234567890ABCDEF01234570 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B1234567890ABCDEF01234571 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		B1234567890ABCDEF01234572 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B1234567890ABCDEF01234573 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B1234567890ABCDEF01234574 /* DataModel.xcdatamodeld */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodeld; sourceTree = "<group>"; };
+		B1234567890ABCDEF01234575 /* biomaTIMERTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = biomaTIMERTests.swift; sourceTree = "<group>"; };
+		B1234567890ABCDEF01234576 /* biomaTIMERUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = biomaTIMERUITests.swift; sourceTree = "<group>"; };
+		B1234567890ABCDEF01234577 /* biomaTIMERUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = biomaTIMERUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B1234567890ABCDEF01234578 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		K1234567890ABCDEF01234567 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		E1234567890ABCDEF01234567 /* biomaTIMER.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = biomaTIMER.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1234567890ABCDEF01234568 /* biomaTIMERTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = biomaTIMERTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1234567890ABCDEF01234569 /* biomaTIMERUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = biomaTIMERUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		142E4B2D2C8E5D7F00ABCDEF /* Frameworks */ = {
+		F1234567890ABCDEF01234567 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		142E4B3F2C8E5D8000ABCDEF /* Frameworks */ = {
+		F1234567890ABCDEF01234568 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		142E4B492C8E5D8000ABCDEF /* Frameworks */ = {
+		F1234567890ABCDEF01234569 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -74,106 +93,115 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		142E4B272C8E5D7F00ABCDEF = {
+		G1234567890ABCDEF01234567 = {
 			isa = PBXGroup;
 			children = (
-				142E4B322C8E5D7F00ABCDEF /* biomaTIMER */,
-				142E4B452C8E5D8000ABCDEF /* biomaTIMERTests */,
-				142E4B4F2C8E5D8000ABCDEF /* biomaTIMERUITests */,
-				142E4B312C8E5D7F00ABCDEF /* Products */,
+				G1234567890ABCDEF01234568 /* biomaTIMER */,
+				G1234567890ABCDEF01234569 /* biomaTIMERTests */,
+				G1234567890ABCDEF0123456A /* biomaTIMERUITests */,
+				G1234567890ABCDEF0123456B /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		142E4B312C8E5D7F00ABCDEF /* Products */ = {
+		G1234567890ABCDEF01234568 /* biomaTIMER */ = {
 			isa = PBXGroup;
 			children = (
-				142E4B302C8E5D7F00ABCDEF /* biomaTIMER.app */,
-				142E4B422C8E5D8000ABCDEF /* biomaTIMERTests.xctest */,
-				142E4B4C2C8E5D8000ABCDEF /* biomaTIMERUITests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		142E4B322C8E5D7F00ABCDEF /* biomaTIMER */ = {
-			isa = PBXGroup;
-			children = (
-				142E4B5F2C8E5E3700ABCDEF /* Info.plist */,
-				142E4B332C8E5D7F00ABCDEF /* biomaTIMERApp.swift */,
-				142E4B352C8E5D7F00ABCDEF /* ContentView.swift */,
-				142E4B602C8E5E4800ABCDEF /* Models */,
-				142E4B612C8E5E4F00ABCDEF /* Views */,
-				142E4B622C8E5E5500ABCDEF /* Services */,
-				142E4B632C8E5E5B00ABCDEF /* Extensions */,
-				142E4B372C8E5D8000ABCDEF /* Assets.xcassets */,
-				142E4B3C2C8E5D8000ABCDEF /* DataModel.xcdatamodeld */,
-				142E4B392C8E5D8000ABCDEF /* Preview Content */,
+				B1234567890ABCDEF01234578 /* Info.plist */,
+				B1234567890ABCDEF01234567 /* biomaTIMERApp.swift */,
+				B1234567890ABCDEF01234568 /* ContentView.swift */,
+				G1234567890ABCDEF0123456C /* Models */,
+				G1234567890ABCDEF0123456D /* Views */,
+				G1234567890ABCDEF0123456E /* Services */,
+				G1234567890ABCDEF0123456F /* Extensions */,
+				B1234567890ABCDEF01234572 /* Assets.xcassets */,
+				B1234567890ABCDEF01234574 /* DataModel.xcdatamodeld */,
+				G1234567890ABCDEF01234570 /* Preview Content */,
 			);
 			path = biomaTIMER;
 			sourceTree = "<group>";
 		};
-		142E4B392C8E5D8000ABCDEF /* Preview Content */ = {
+		G1234567890ABCDEF01234569 /* biomaTIMERTests */ = {
 			isa = PBXGroup;
 			children = (
-				142E4B3A2C8E5D8000ABCDEF /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		142E4B452C8E5D8000ABCDEF /* biomaTIMERTests */ = {
-			isa = PBXGroup;
-			children = (
-				142E4B462C8E5D8000ABCDEF /* biomaTIMERTests.swift */,
+				B1234567890ABCDEF01234575 /* biomaTIMERTests.swift */,
 			);
 			path = biomaTIMERTests;
 			sourceTree = "<group>";
 		};
-		142E4B4F2C8E5D8000ABCDEF /* biomaTIMERUITests */ = {
+		G1234567890ABCDEF0123456A /* biomaTIMERUITests */ = {
 			isa = PBXGroup;
 			children = (
-				142E4B502C8E5D8000ABCDEF /* biomaTIMERUITests.swift */,
-				142E4B522C8E5D8000ABCDEF /* biomaTIMERUITestsLaunchTests.swift */,
+				B1234567890ABCDEF01234576 /* biomaTIMERUITests.swift */,
+				B1234567890ABCDEF01234577 /* biomaTIMERUITestsLaunchTests.swift */,
 			);
 			path = biomaTIMERUITests;
 			sourceTree = "<group>";
 		};
-		142E4B602C8E5E4800ABCDEF /* Models */ = {
+		G1234567890ABCDEF0123456B /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				E1234567890ABCDEF01234567 /* biomaTIMER.app */,
+				E1234567890ABCDEF01234568 /* biomaTIMERTests.xctest */,
+				E1234567890ABCDEF01234569 /* biomaTIMERUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		G1234567890ABCDEF0123456C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B1234567890ABCDEF01234569 /* TimerModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		142E4B612C8E5E4F00ABCDEF /* Views */ = {
+		G1234567890ABCDEF0123456D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B1234567890ABCDEF0123456D /* MainTimerView.swift */,
+				B1234567890ABCDEF0123456E /* ProjectEditorView.swift */,
+				B1234567890ABCDEF0123456F /* HistoryView.swift */,
+				B1234567890ABCDEF01234570 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		142E4B622C8E5E5500ABCDEF /* Services */ = {
+		G1234567890ABCDEF0123456E /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				B1234567890ABCDEF0123456A /* TimerService.swift */,
+				B1234567890ABCDEF0123456B /* PersistenceController.swift */,
+				B1234567890ABCDEF0123456C /* BackgroundTaskService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
 		};
-		142E4B632C8E5E5B00ABCDEF /* Extensions */ = {
+		G1234567890ABCDEF0123456F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				B1234567890ABCDEF01234571 /* Date+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		G1234567890ABCDEF01234570 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B1234567890ABCDEF01234573 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		142E4B2F2C8E5D7F00ABCDEF /* biomaTIMER */ = {
+		E1234567890ABCDEF01234567 /* biomaTIMER */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 142E4B562C8E5D8000ABCDEF /* Build configuration list for PBXNativeTarget "biomaTIMER" */;
+			buildConfigurationList = H1234567890ABCDEF01234567 /* Build configuration list for PBXNativeTarget "biomaTIMER" */;
 			buildPhases = (
-				142E4B2C2C8E5D7F00ABCDEF /* Sources */,
-				142E4B2D2C8E5D7F00ABCDEF /* Frameworks */,
-				142E4B2E2C8E5D7F00ABCDEF /* Resources */,
+				F1234567890ABCDEF01234567 /* Sources */,
+				F1234567890ABCDEF01234568 /* Frameworks */,
+				F1234567890ABCDEF0123456A /* Resources */,
 			);
 			buildRules = (
 			);
@@ -181,69 +209,69 @@
 			);
 			name = biomaTIMER;
 			productName = biomaTIMER;
-			productReference = 142E4B302C8E5D7F00ABCDEF /* biomaTIMER.app */;
+			productReference = E1234567890ABCDEF01234567 /* biomaTIMER.app */;
 			productType = "com.apple.product-type.application";
 		};
-		142E4B412C8E5D8000ABCDEF /* biomaTIMERTests */ = {
+		E1234567890ABCDEF01234568 /* biomaTIMERTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 142E4B592C8E5D8000ABCDEF /* Build configuration list for PBXNativeTarget "biomaTIMERTests" */;
+			buildConfigurationList = H1234567890ABCDEF01234568 /* Build configuration list for PBXNativeTarget "biomaTIMERTests" */;
 			buildPhases = (
-				142E4B3E2C8E5D8000ABCDEF /* Sources */,
-				142E4B3F2C8E5D8000ABCDEF /* Frameworks */,
-				142E4B402C8E5D8000ABCDEF /* Resources */,
+				F1234567890ABCDEF01234569 /* Sources */,
+				F1234567890ABCDEF0123456B /* Frameworks */,
+				F1234567890ABCDEF0123456C /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				142E4B442C8E5D8000ABCDEF /* PBXTargetDependency */,
+				I1234567890ABCDEF01234567 /* PBXTargetDependency */,
 			);
 			name = biomaTIMERTests;
 			productName = biomaTIMERTests;
-			productReference = 142E4B422C8E5D8000ABCDEF /* biomaTIMERTests.xctest */;
+			productReference = E1234567890ABCDEF01234568 /* biomaTIMERTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		142E4B4B2C8E5D8000ABCDEF /* biomaTIMERUITests */ = {
+		E1234567890ABCDEF01234569 /* biomaTIMERUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 142E4B5C2C8E5D8000ABCDEF /* Build configuration list for PBXNativeTarget "biomaTIMERUITests" */;
+			buildConfigurationList = H1234567890ABCDEF01234569 /* Build configuration list for PBXNativeTarget "biomaTIMERUITests" */;
 			buildPhases = (
-				142E4B482C8E5D8000ABCDEF /* Sources */,
-				142E4B492C8E5D8000ABCDEF /* Frameworks */,
-				142E4B4A2C8E5D8000ABCDEF /* Resources */,
+				F1234567890ABCDEF0123456D /* Sources */,
+				F1234567890ABCDEF0123456E /* Frameworks */,
+				F1234567890ABCDEF0123456F /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				142E4B4E2C8E5D8000ABCDEF /* PBXTargetDependency */,
+				I1234567890ABCDEF01234568 /* PBXTargetDependency */,
 			);
 			name = biomaTIMERUITests;
 			productName = biomaTIMERUITests;
-			productReference = 142E4B4C2C8E5D8000ABCDEF /* biomaTIMERUITests.xctest */;
+			productReference = E1234567890ABCDEF01234569 /* biomaTIMERUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		142E4B282C8E5D7F00ABCDEF /* Project object */ = {
+		D1234567890ABCDEF01234567 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
-					142E4B2F2C8E5D7F00ABCDEF = {
+					E1234567890ABCDEF01234567 = {
 						CreatedOnToolsVersion = 15.4;
 					};
-					142E4B412C8E5D8000ABCDEF = {
+					E1234567890ABCDEF01234568 = {
 						CreatedOnToolsVersion = 15.4;
-						TestTargetID = 142E4B2F2C8E5D7F00ABCDEF;
+						TestTargetID = E1234567890ABCDEF01234567;
 					};
-					142E4B4B2C8E5D8000ABCDEF = {
+					E1234567890ABCDEF01234569 = {
 						CreatedOnToolsVersion = 15.4;
-						TestTargetID = 142E4B2F2C8E5D7F00ABCDEF;
+						TestTargetID = E1234567890ABCDEF01234567;
 					};
 				};
 			};
-			buildConfigurationList = 142E4B2B2C8E5D7F00ABCDEF /* Build configuration list for PBXProject "biomaTIMER" */;
+			buildConfigurationList = H1234567890ABCDEF0123456A /* Build configuration list for PBXProject "biomaTIMER" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -251,36 +279,36 @@
 				en,
 				Base,
 			);
-			mainGroup = 142E4B272C8E5D7F00ABCDEF;
-			productRefGroup = 142E4B312C8E5D7F00ABCDEF /* Products */;
+			mainGroup = G1234567890ABCDEF01234567;
+			productRefGroup = G1234567890ABCDEF0123456B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				142E4B2F2C8E5D7F00ABCDEF /* biomaTIMER */,
-				142E4B412C8E5D8000ABCDEF /* biomaTIMERTests */,
-				142E4B4B2C8E5D8000ABCDEF /* biomaTIMERUITests */,
+				E1234567890ABCDEF01234567 /* biomaTIMER */,
+				E1234567890ABCDEF01234568 /* biomaTIMERTests */,
+				E1234567890ABCDEF01234569 /* biomaTIMERUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		142E4B2E2C8E5D7F00ABCDEF /* Resources */ = {
+		F1234567890ABCDEF0123456A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				142E4B3B2C8E5D8000ABCDEF /* Preview Assets.xcassets in Resources */,
-				142E4B382C8E5D8000ABCDEF /* Assets.xcassets in Resources */,
+				A1234567890ABCDEF01234573 /* Preview Assets.xcassets in Resources */,
+				A1234567890ABCDEF01234572 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		142E4B402C8E5D8000ABCDEF /* Resources */ = {
+		F1234567890ABCDEF0123456C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		142E4B4A2C8E5D8000ABCDEF /* Resources */ = {
+		F1234567890ABCDEF0123456F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -290,50 +318,59 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		142E4B2C2C8E5D7F00ABCDEF /* Sources */ = {
+		F1234567890ABCDEF01234567 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				142E4B3D2C8E5D8000ABCDEF /* DataModel.xcdatamodeld in Sources */,
-				142E4B362C8E5D7F00ABCDEF /* ContentView.swift in Sources */,
-				142E4B342C8E5D7F00ABCDEF /* biomaTIMERApp.swift in Sources */,
+				A1234567890ABCDEF01234567 /* biomaTIMERApp.swift in Sources */,
+				A1234567890ABCDEF01234568 /* ContentView.swift in Sources */,
+				A1234567890ABCDEF01234569 /* TimerModel.swift in Sources */,
+				A1234567890ABCDEF0123456A /* TimerService.swift in Sources */,
+				A1234567890ABCDEF0123456B /* PersistenceController.swift in Sources */,
+				A1234567890ABCDEF0123456C /* BackgroundTaskService.swift in Sources */,
+				A1234567890ABCDEF0123456D /* MainTimerView.swift in Sources */,
+				A1234567890ABCDEF0123456E /* ProjectEditorView.swift in Sources */,
+				A1234567890ABCDEF0123456F /* HistoryView.swift in Sources */,
+				A1234567890ABCDEF01234570 /* SettingsView.swift in Sources */,
+				A1234567890ABCDEF01234571 /* Date+Extensions.swift in Sources */,
+				A1234567890ABCDEF01234574 /* DataModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		142E4B3E2C8E5D8000ABCDEF /* Sources */ = {
+		F1234567890ABCDEF01234569 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				142E4B472C8E5D8000ABCDEF /* biomaTIMERTests.swift in Sources */,
+				A1234567890ABCDEF01234575 /* biomaTIMERTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		142E4B482C8E5D8000ABCDEF /* Sources */ = {
+		F1234567890ABCDEF0123456D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				142E4B532C8E5D8000ABCDEF /* biomaTIMERUITestsLaunchTests.swift in Sources */,
-				142E4B512C8E5D8000ABCDEF /* biomaTIMERUITests.swift in Sources */,
+				A1234567890ABCDEF01234576 /* biomaTIMERUITests.swift in Sources */,
+				A1234567890ABCDEF01234577 /* biomaTIMERUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		142E4B442C8E5D8000ABCDEF /* PBXTargetDependency */ = {
+		I1234567890ABCDEF01234567 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 142E4B2F2C8E5D7F00ABCDEF /* biomaTIMER */;
-			targetProxy = 142E4B432C8E5D8000ABCDEF /* PBXContainerItemProxy */;
+			target = E1234567890ABCDEF01234567 /* biomaTIMER */;
+			targetProxy = C1234567890ABCDEF01234567 /* PBXContainerItemProxy */;
 		};
-		142E4B4E2C8E5D8000ABCDEF /* PBXTargetDependency */ = {
+		I1234567890ABCDEF01234568 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 142E4B2F2C8E5D7F00ABCDEF /* biomaTIMER */;
-			targetProxy = 142E4B4D2C8E5D8000ABCDEF /* PBXContainerItemProxy */;
+			target = E1234567890ABCDEF01234567 /* biomaTIMER */;
+			targetProxy = C1234567890ABCDEF01234568 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		142E4B542C8E5D8000ABCDEF /* Debug */ = {
+		J1234567890ABCDEF01234567 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -396,7 +433,7 @@
 			};
 			name = Debug;
 		};
-		142E4B552C8E5D8000ABCDEF /* Release */ = {
+		J1234567890ABCDEF01234568 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -452,7 +489,7 @@
 			};
 			name = Release;
 		};
-		142E4B572C8E5D8000ABCDEF /* Debug */ = {
+		J1234567890ABCDEF01234569 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -481,7 +518,7 @@
 			};
 			name = Debug;
 		};
-		142E4B582C8E5D8000ABCDEF /* Release */ = {
+		J1234567890ABCDEF0123456A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -510,7 +547,7 @@
 			};
 			name = Release;
 		};
-		142E4B5A2C8E5D8000ABCDEF /* Debug */ = {
+		J1234567890ABCDEF0123456B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -529,7 +566,7 @@
 			};
 			name = Debug;
 		};
-		142E4B5B2C8E5D8000ABCDEF /* Release */ = {
+		J1234567890ABCDEF0123456C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -546,9 +583,9 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/biomaTIMER.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/biomaTIMER";
 			};
-			name = Release;
+			name = Debug;
 		};
-		142E4B5D2C8E5D8000ABCDEF /* Debug */ = {
+		J1234567890ABCDEF0123456D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -565,7 +602,7 @@
 			};
 			name = Debug;
 		};
-		142E4B5E2C8E5D8000ABCDEF /* Release */ = {
+		J1234567890ABCDEF0123456E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -585,38 +622,38 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		142E4B2B2C8E5D7F00ABCDEF /* Build configuration list for PBXProject "biomaTIMER" */ = {
+		H1234567890ABCDEF0123456A /* Build configuration list for PBXProject "biomaTIMER" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				142E4B542C8E5D8000ABCDEF /* Debug */,
-				142E4B552C8E5D8000ABCDEF /* Release */,
+				J1234567890ABCDEF01234567 /* Debug */,
+				J1234567890ABCDEF01234568 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		142E4B562C8E5D8000ABCDEF /* Build configuration list for PBXNativeTarget "biomaTIMER" */ = {
+		H1234567890ABCDEF01234567 /* Build configuration list for PBXNativeTarget "biomaTIMER" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				142E4B572C8E5D8000ABCDEF /* Debug */,
-				142E4B582C8E5D8000ABCDEF /* Release */,
+				J1234567890ABCDEF01234569 /* Debug */,
+				J1234567890ABCDEF0123456A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		142E4B592C8E5D8000ABCDEF /* Build configuration list for PBXNativeTarget "biomaTIMERTests" */ = {
+		H1234567890ABCDEF01234568 /* Build configuration list for PBXNativeTarget "biomaTIMERTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				142E4B5A2C8E5D8000ABCDEF /* Debug */,
-				142E4B5B2C8E5D8000ABCDEF /* Release */,
+				J1234567890ABCDEF0123456B /* Debug */,
+				J1234567890ABCDEF0123456C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		142E4B5C2C8E5D8000ABCDEF /* Build configuration list for PBXNativeTarget "biomaTIMERUITests" */ = {
+		H1234567890ABCDEF01234569 /* Build configuration list for PBXNativeTarget "biomaTIMERUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				142E4B5D2C8E5D8000ABCDEF /* Debug */,
-				142E4B5E2C8E5D8000ABCDEF /* Release */,
+				J1234567890ABCDEF0123456D /* Debug */,
+				J1234567890ABCDEF0123456E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -624,17 +661,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		142E4B3B2C8E5D8000ABCDEF /* DataModel.xcdatamodeld */ = {
+		B1234567890ABCDEF01234574 /* DataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				142E4B3C2C8E5D8000ABCDEF /* DataModel.xcdatamodel */,
+				K1234567890ABCDEF01234567 /* DataModel.xcdatamodel */,
 			);
-			currentVersion = 142E4B3C2C8E5D8000ABCDEF /* DataModel.xcdatamodel */;
+			currentVersion = K1234567890ABCDEF01234567 /* DataModel.xcdatamodel */;
 			path = DataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
 	};
-	rootObject = 142E4B282C8E5D7F00ABCDEF /* Project object */;
+	rootObject = D1234567890ABCDEF01234567 /* Project object */;
 }
