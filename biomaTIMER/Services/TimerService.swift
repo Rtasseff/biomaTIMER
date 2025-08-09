@@ -98,8 +98,8 @@ class TimerService: ObservableObject {
             timerState.activeProject = nil
         }
         
-        // If this is the lunch timer, stop UI timer too
-        if isProjectLunchTimer(projectId) {
+        // If this is the lunch timer and work timer isn't running, stop UI timer
+        if isProjectLunchTimer(projectId) && !timerState.isRunning {
             stopUITimer()
         }
         
@@ -132,11 +132,14 @@ class TimerService: ObservableObject {
     }
     
     private func updateTimers() {
-        guard timerState.isRunning, let startTime = timerState.startTime else { return }
-        
         let now = Date()
-        timerState.totalSeconds = now.timeIntervalSince(startTime)
         
+        // Update work timer if running
+        if timerState.isRunning, let startTime = timerState.startTime {
+            timerState.totalSeconds = now.timeIntervalSince(startTime)
+        }
+        
+        // Update all project timers (including lunch timer)
         for index in projectTimers.indices {
             if projectTimers[index].isRunning, let projectStartTime = projectTimers[index].startTime {
                 projectTimers[index].totalSeconds = now.timeIntervalSince(projectStartTime)
