@@ -1,4 +1,5 @@
 import SwiftUI
+import CoreData
 
 struct SettingsView: View {
     @EnvironmentObject var timerService: TimerService

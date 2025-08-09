@@ -1,0 +1,71 @@
+{
+  "": {
+    "swift-dependencies": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/master.swiftdeps"
+  },
+  "/Users/rtasseff/projects/biomaTIMER/biomaTIMER/ContentView.swift": {
+    "dependencies": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/ContentView.d",
+    "object": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/ContentView.swift.o",
+    "swiftmodule": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/ContentView~partial.swiftmodule",
+    "swift-dependencies": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/ContentView.swiftdeps"
+  },
+  "/Users/rtasseff/projects/biomaTIMER/biomaTIMER/Extensions/Date+Extensions.swift": {
+    "dependencies": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/Date+Extensions.d",
+    "object": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/Date+Extensions.swift.o",
+    "swiftmodule": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/Date+Extensions~partial.swiftmodule",
+    "swift-dependencies": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/Date+Extensions.swiftdeps"
+  },
+  "/Users/rtasseff/projects/biomaTIMER/biomaTIMER/Models/TimerModel.swift": {
+    "dependencies": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/TimerModel.d",
+    "object": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/TimerModel.swift.o",
+    "swiftmodule": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/TimerModel~partial.swiftmodule",
+    "swift-dependencies": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/TimerModel.swiftdeps"
+  },
+  "/Users/rtasseff/projects/biomaTIMER/biomaTIMER/Services/BackgroundTaskService.swift": {
+    "dependencies": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/BackgroundTaskService.d",
+    "object": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/BackgroundTaskService.swift.o",
+    "swiftmodule": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/BackgroundTaskService~partial.swiftmodule",
+    "swift-dependencies": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/BackgroundTaskService.swiftdeps"
+  },
+  "/Users/rtasseff/projects/biomaTIMER/biomaTIMER/Services/PersistenceController.swift": {
+    "dependencies": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/PersistenceController.d",
+    "object": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/PersistenceController.swift.o",
+    "swiftmodule": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/PersistenceController~partial.swiftmodule",
+    "swift-dependencies": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/PersistenceController.swiftdeps"
+  },
+  "/Users/rtasseff/projects/biomaTIMER/biomaTIMER/Services/TimerService.swift": {
+    "dependencies": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/TimerService.d",
+    "object": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/TimerService.swift.o",
+    "swiftmodule": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/TimerService~partial.swiftmodule",
+    "swift-dependencies": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/TimerService.swiftdeps"
+  },
+  "/Users/rtasseff/projects/biomaTIMER/biomaTIMER/Views/HistoryView.swift": {
+    "dependencies": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/HistoryView.d",
+    "object": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/HistoryView.swift.o",
+    "swiftmodule": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/HistoryView~partial.swiftmodule",
+    "swift-dependencies": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/HistoryView.swiftdeps"
+  },
+  "/Users/rtasseff/projects/biomaTIMER/biomaTIMER/Views/MainTimerView.swift": {
+    "dependencies": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/MainTimerView.d",
+    "object": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/MainTimerView.swift.o",
+    "swiftmodule": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/MainTimerView~partial.swiftmodule",
+    "swift-dependencies": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/MainTimerView.swiftdeps"
+  },
+  "/Users/rtasseff/projects/biomaTIMER/biomaTIMER/Views/ProjectEditorView.swift": {
+    "dependencies": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/ProjectEditorView.d",
+    "object": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/ProjectEditorView.swift.o",
+    "swiftmodule": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/ProjectEditorView~partial.swiftmodule",
+    "swift-dependencies": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/ProjectEditorView.swiftdeps"
+  },
+  "/Users/rtasseff/projects/biomaTIMER/biomaTIMER/Views/SettingsView.swift": {
+    "dependencies": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/SettingsView.d",
+    "object": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/SettingsView.swift.o",
+    "swiftmodule": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/SettingsView~partial.swiftmodule",
+    "swift-dependencies": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/SettingsView.swiftdeps"
+  },
+  "/Users/rtasseff/projects/biomaTIMER/biomaTIMER/biomaTIMERApp.swift": {
+    "dependencies": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/biomaTIMERApp.d",
+    "object": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/biomaTIMERApp.swift.o",
+    "swiftmodule": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/biomaTIMERApp~partial.swiftmodule",
+    "swift-dependencies": "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/biomaTIMERApp.swiftdeps"
+  }
+}

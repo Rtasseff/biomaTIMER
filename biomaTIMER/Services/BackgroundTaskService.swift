@@ -1,6 +1,6 @@
 import Foundation
-import UIKit
 import ActivityKit
+import UIKit
 
 class BackgroundTaskService: ObservableObject {
     static let shared = BackgroundTaskService()
@@ -49,15 +49,30 @@ class BackgroundTaskService: ObservableObject {
         }
     }
     
-    func startLiveActivity(timerState: TimerState, activeProjectName: String?, activeProjectColor: String?) {
-        guard ActivityAuthorizationInfo().areActivitiesEnabled else { return }
+    func startLiveActivity(timerState: TimerState, activeProjectName: String?, activeProjectColor: String?, currentSessionTime: TimeInterval, dailyTotalTime: TimeInterval) {
+        // If we already have an active Live Activity, update it instead
+        if currentActivity != nil {
+            updateLiveActivity(timerState: timerState, activeProjectName: activeProjectName, activeProjectColor: activeProjectColor, currentSessionTime: currentSessionTime, dailyTotalTime: dailyTotalTime)
+            return
+        }
+        
+        let authInfo = ActivityAuthorizationInfo()
+        print("Live Activities enabled: \(authInfo.areActivitiesEnabled)")
+        print("Live Activities frequency enabled: \(authInfo.frequentPushesEnabled)")
+        
+        guard authInfo.areActivitiesEnabled else { 
+            print("Live Activities are not enabled - check iOS Settings > biomaTIMER > Live Activities")
+            return 
+        }
         
         let attributes = TimerActivityAttributes(timerName: "Work Timer")
         let contentState = TimerActivityAttributes.ContentState(
             startTime: timerState.startTime ?? Date(),
             isRunning: timerState.isRunning,
             activeProjectName: activeProjectName,
-            activeProjectColor: activeProjectColor
+            activeProjectColor: activeProjectColor,
+            currentSessionTime: currentSessionTime,
+            dailyTotalTime: dailyTotalTime
         )
         
         do {
@@ -67,19 +82,22 @@ class BackgroundTaskService: ObservableObject {
                 content: content,
                 pushType: nil
             )
+            print("Live Activity started successfully")
         } catch {
             print("Failed to start Live Activity: \(error)")
         }
     }
     
-    func updateLiveActivity(timerState: TimerState, activeProjectName: String?, activeProjectColor: String?) {
+    func updateLiveActivity(timerState: TimerState, activeProjectName: String?, activeProjectColor: String?, currentSessionTime: TimeInterval, dailyTotalTime: TimeInterval) {
         guard let activity = currentActivity else { return }
         
         let contentState = TimerActivityAttributes.ContentState(
             startTime: timerState.startTime ?? Date(),
             isRunning: timerState.isRunning,
             activeProjectName: activeProjectName,
-            activeProjectColor: activeProjectColor
+            activeProjectColor: activeProjectColor,
+            currentSessionTime: currentSessionTime,
+            dailyTotalTime: dailyTotalTime
         )
         
         Task {

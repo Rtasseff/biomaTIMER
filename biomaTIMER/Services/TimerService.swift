@@ -108,6 +108,78 @@ class TimerService: ObservableObject {
                 projectTimers[index].totalSeconds = now.timeIntervalSince(projectStartTime)
             }
         }
+        updateLiveActivity()
+    }
+    
+    func getDailyTotal() -> TimeInterval {
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: Date())
+        let tomorrow = calendar.date(byAdding: .day, value: 1, to: today)!
+        
+        let request: NSFetchRequest<TimeEntry> = TimeEntry.fetchRequest()
+        request.predicate = NSPredicate(format: "startTime >= %@ AND startTime < %@", today as NSDate, tomorrow as NSDate)
+        
+        do {
+            let entries = try context.fetch(request)
+            let completedTime = entries.reduce(into: 0) { total, entry in
+                if let startTime = entry.startTime, let endTime = entry.endTime {
+                    total += endTime.timeIntervalSince(startTime)
+                }
+            }
+            
+            // Add current session time if timer is running
+            let currentSession = getCurrentSessionTime()
+            return completedTime + currentSession
+        } catch {
+            print("Error fetching daily total: \(error)")
+            return getCurrentSessionTime()
+        }
+    }
+    
+    func getCurrentSessionTime() -> TimeInterval {
+        guard timerState.isRunning, let startTime = timerState.startTime else {
+            return 0
+        }
+        return Date().timeIntervalSince(startTime)
+    }
+    
+    func getProjectDailyTotal(_ projectId: UUID) -> TimeInterval {
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: Date())
+        let tomorrow = calendar.date(byAdding: .day, value: 1, to: today)!
+        
+        let request: NSFetchRequest<TimeEntry> = TimeEntry.fetchRequest()
+        request.predicate = NSPredicate(format: "startTime >= %@ AND startTime < %@ AND project.id == %@", 
+                                       today as NSDate, tomorrow as NSDate, projectId as NSUUID)
+        
+        do {
+            let entries = try context.fetch(request)
+            let completedTime = entries.reduce(into: 0) { total, entry in
+                if let startTime = entry.startTime, let endTime = entry.endTime {
+                    total += endTime.timeIntervalSince(startTime)
+                }
+            }
+            
+            // Add current session time if this project timer is running
+            if let projectTimer = projectTimers.first(where: { $0.projectId == projectId }),
+               projectTimer.isRunning, let startTime = projectTimer.startTime {
+                let currentSession = Date().timeIntervalSince(startTime)
+                return completedTime + currentSession
+            }
+            
+            return completedTime
+        } catch {
+            print("Error fetching project daily total: \(error)")
+            return 0
+        }
+    }
+    
+    func getCurrentProjectSessionTime(_ projectId: UUID) -> TimeInterval {
+        guard let projectTimer = projectTimers.first(where: { $0.projectId == projectId }),
+              projectTimer.isRunning, let startTime = projectTimer.startTime else {
+            return 0
+        }
+        return Date().timeIntervalSince(startTime)
     }
     
     private func createTimeEntry(isWorkTime: Bool, projectId: UUID? = nil) {
@@ -239,7 +311,9 @@ class TimerService: ObservableObject {
             backgroundService.startLiveActivity(
                 timerState: timerState,
                 activeProjectName: activeProjectName,
-                activeProjectColor: activeProjectColor
+                activeProjectColor: activeProjectColor,
+                currentSessionTime: getCurrentSessionTime(),
+                dailyTotalTime: getDailyTotal()
             )
         } else {
             backgroundService.endLiveActivity()

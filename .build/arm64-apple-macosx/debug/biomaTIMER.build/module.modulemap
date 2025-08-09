@@ -1,0 +1,4 @@
+module biomaTIMER {
+    header "/Users/rtasseff/projects/biomaTIMER/.build/arm64-apple-macosx/debug/biomaTIMER.build/biomaTIMER-Swift.h"
+    requires objc
+}

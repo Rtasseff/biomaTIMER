@@ -20,7 +20,7 @@ struct HistoryView: View {
                         Text(period.rawValue).tag(period)
                     }
                 }
-                .pickerStyle(.segmentedPickerStyle)
+                .pickerStyle(.segmented)
                 .padding(.horizontal)
                 
                 ScrollView {

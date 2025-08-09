@@ -12,7 +12,7 @@ struct MainTimerView: View {
                         .font(.title2)
                         .foregroundColor(.secondary)
                     
-                    Text(timerService.timerState.totalSeconds.formattedDuration())
+                    Text("\(timerService.getCurrentSessionTime().formattedDuration()) (\(timerService.getDailyTotal().formattedDuration()))")
                         .font(.system(size: 48, weight: .bold, design: .monospaced))
                         .foregroundColor(timerService.timerState.isRunning ? .primary : .secondary)
                     
@@ -86,12 +86,12 @@ struct ProjectRowView: View {
         timerService.projectTimers.first { $0.projectId == project.id }?.isRunning ?? false
     }
     
-    private var currentTime: TimeInterval {
-        if let timer = timerService.projectTimers.first(where: { $0.projectId == project.id }),
-           timer.isRunning {
-            return timer.totalSeconds
-        }
-        return timerService.getTodayProjectTime(project.id)
+    private var currentSessionTime: TimeInterval {
+        return timerService.getCurrentProjectSessionTime(project.id)
+    }
+    
+    private var dailyTotalTime: TimeInterval {
+        return timerService.getProjectDailyTotal(project.id)
     }
     
     var body: some View {
@@ -106,14 +106,26 @@ struct ProjectRowView: View {
             
             Spacer()
             
-            Text(currentTime.formattedDuration())
-                .font(.system(.body, design: .monospaced))
-                .foregroundColor(.secondary)
+            VStack(alignment: .trailing, spacing: 2) {
+                Text("\(currentSessionTime.formattedDuration()) (\(dailyTotalTime.formattedDuration()))")
+                    .font(.system(.body, design: .monospaced))
+                    .foregroundColor(.secondary)
+                
+                if isRunning {
+                    Text("• Running")
+                        .font(.caption2)
+                        .foregroundColor(.green)
+                }
+            }
             
             Button(action: {
                 if isRunning {
                     timerService.stopProject(project.id)
                 } else {
+                    // Auto-start main timer if not running
+                    if !timerService.timerState.isRunning {
+                        timerService.startWorkTimer()
+                    }
                     timerService.startProject(project.id)
                 }
             }) {
