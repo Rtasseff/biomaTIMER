@@ -1,0 +1,56 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="biomaTIMER icon">
+  <defs>
+    <!-- Background gradient: blue → green -->
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1F76D2"/>   <!-- deep blue -->
+      <stop offset="100%" stop-color="#20B58C"/> <!-- teal/green -->
+    </linearGradient>
+
+    <!-- Inner shadow for slight depth -->
+    <filter id="innerShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feOffset dx="0" dy="6"/>
+      <feGaussianBlur stdDeviation="18" result="offset-blur"/>
+      <feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse"/>
+      <feFlood flood-color="rgba(0,0,0,0.18)" result="color"/>
+      <feComposite operator="in" in="color" in2="inverse" result="shadow"/>
+      <feComposite operator="over" in="shadow" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+
+  <!-- Rounded-square background -->
+  <rect x="64" y="64" width="896" height="896" rx="196" fill="url(#bgGrad)"/>
+
+  <!-- Stopwatch group -->
+  <g transform="translate(512,512)">
+    <!-- Outer ring -->
+    <circle r="300" fill="none" stroke="#FFFFFF" stroke-width="28" opacity="0.95"/>
+
+    <!-- Molecule crown -->
+    <g transform="translate(0,-360)">
+      <!-- central node -->
+      <circle r="18" fill="#FFFFFF"/>
+      <!-- bonds -->
+      <line x1="0" y1="0" x2="-40" y2="-40" stroke="#FFFFFF" stroke-width="6"/>
+      <line x1="0" y1="0" x2="40" y2="-40" stroke="#FFFFFF" stroke-width="6"/>
+      <!-- side nodes -->
+      <circle cx="-40" cy="-40" r="12" fill="#FFFFFF"/>
+      <circle cx="40" cy="-40" r="12" fill="#FFFFFF"/>
+    </g>
+
+    <!-- Hands -->
+    <line x1="0" y1="0" x2="0" y2="-170" stroke="#FFFFFF" stroke-width="26" stroke-linecap="round" opacity="0.95"/>
+    <g transform="rotate(-28)">
+      <line x1="0" y1="0" x2="0" y2="-236" stroke="#FFFFFF" stroke-width="16" stroke-linecap="round" opacity="0.95"/>
+    </g>
+
+    <!-- Center cap -->
+    <circle r="16" fill="#FFFFFF" opacity="0.95"/>
+  </g>
+
+  <!-- Inner shadow -->
+  <rect x="64" y="64" width="896" height="896" rx="196" fill="none" filter="url(#innerShadow)"/>
+
+  <!-- Project status dot -->
+  <circle cx="750" cy="760" r="34" fill="#1F76D2" opacity="0.95"/>
+</svg>
+
