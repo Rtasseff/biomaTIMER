@@ -42,12 +42,15 @@ struct SettingsView: View {
                             
                             Spacer()
                             
-                            Button(action: {
-                                projectToDelete = project
-                                showingDeleteProjectAlert = true
-                            }) {
-                                Image(systemName: "trash")
-                                    .foregroundColor(.red)
+                            // Don't show delete button for lunch timer
+                            if !project.isLunchTimer {
+                                Button(action: {
+                                    projectToDelete = project
+                                    showingDeleteProjectAlert = true
+                                }) {
+                                    Image(systemName: "trash")
+                                        .foregroundColor(.red)
+                                }
                             }
                         }
                     }

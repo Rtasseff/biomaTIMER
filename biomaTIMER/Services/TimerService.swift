@@ -15,10 +15,14 @@ class TimerService: ObservableObject {
     init(context: NSManagedObjectContext = PersistenceController.shared.container.viewContext) {
         self.context = context
         loadProjects()
+        createLunchTimerIfNeeded()
     }
     
     func startWorkTimer() {
         guard !timerState.isRunning else { return }
+        
+        // Stop lunch timer if it's running (mutual exclusivity)
+        stopLunchTimerIfRunning()
         
         timerState.isRunning = true
         timerState.startTime = Date()
@@ -45,8 +49,21 @@ class TimerService: ObservableObject {
     }
     
     func startProject(_ projectId: UUID) {
-        if !timerState.isRunning {
-            startWorkTimer()
+        // Check if this is the lunch timer
+        let isLunchTimer = isProjectLunchTimer(projectId)
+        
+        if isLunchTimer {
+            // For lunch timer: stop work timer if running (mutual exclusivity)
+            if timerState.isRunning {
+                timerState.isRunning = false
+                stopUITimer()
+                endOpenWorkEntries()
+            }
+        } else {
+            // For regular projects: start work timer if not running
+            if !timerState.isRunning {
+                startWorkTimer()
+            }
         }
         
         // Stop other projects and close any open project entries before starting a new one.
@@ -63,6 +80,12 @@ class TimerService: ObservableObject {
         
         timerState.activeProject = projectId
         createTimeEntry(isWorkTime: false, projectId: projectId)
+        
+        // Start UI timer for lunch timer since work timer won't be running
+        if isLunchTimer {
+            startUITimer()
+        }
+        
         updateLiveActivity()
     }
     
@@ -75,8 +98,14 @@ class TimerService: ObservableObject {
             timerState.activeProject = nil
         }
         
+        // If this is the lunch timer, stop UI timer too
+        if isProjectLunchTimer(projectId) {
+            stopUITimer()
+        }
+        
         // Only end the open project entry for this project.
         endOpenProjectEntries(projectId: projectId)
+        updateLiveActivity()
     }
     
     private func stopAllProjectTimers() {
@@ -247,12 +276,19 @@ class TimerService: ObservableObject {
         project.name = name
         project.colorHex = colorHex
         project.createdAt = Date()
+        project.isLunchTimer = false // Regular projects are never lunch timers
         
         do { try context.save() } catch { print("Failed to save project: \(error)") }
         loadProjects()
     }
     
     func deleteProject(_ projectId: UUID) {
+        // Prevent deletion of the lunch timer
+        if isProjectLunchTimer(projectId) {
+            print("Cannot delete lunch timer")
+            return
+        }
+        
         let request: NSFetchRequest<Project> = Project.fetchRequest()
         request.predicate = NSPredicate(format: "id == %@", projectId as CVarArg)
         
@@ -282,10 +318,57 @@ class TimerService: ObservableObject {
                     id: id,
                     name: name,
                     colorHex: project.colorHex ?? "#007AFF",
-                    createdAt: createdAt
+                    createdAt: createdAt,
+                    isLunchTimer: project.isLunchTimer
                 )
                 return projectData
             }
+            
+            // Sort projects to show lunch timer first, then by creation date
+            projects.sort { first, second in
+                if first.isLunchTimer && !second.isLunchTimer {
+                    return true
+                } else if !first.isLunchTimer && second.isLunchTimer {
+                    return false
+                } else {
+                    return first.createdAt < second.createdAt
+                }
+            }
+        }
+    }
+    
+    private func createLunchTimerIfNeeded() {
+        // Check if lunch timer already exists
+        let request: NSFetchRequest<Project> = Project.fetchRequest()
+        request.predicate = NSPredicate(format: "isLunchTimer == YES")
+        
+        if let existingLunchProjects = try? context.fetch(request), existingLunchProjects.isEmpty {
+            // Create the lunch timer project
+            let lunchProject = Project(context: context)
+            lunchProject.id = UUID()
+            lunchProject.name = "Lunch"
+            lunchProject.colorHex = "#FF0000" // Red color
+            lunchProject.createdAt = Date()
+            lunchProject.isLunchTimer = true
+            
+            do {
+                try context.save()
+                loadProjects() // Reload to update the UI
+            } catch {
+                print("Failed to create lunch timer: \(error)")
+            }
+        }
+    }
+    
+    private func isProjectLunchTimer(_ projectId: UUID) -> Bool {
+        return projects.first(where: { $0.id == projectId })?.isLunchTimer ?? false
+    }
+    
+    private func stopLunchTimerIfRunning() {
+        if let lunchProject = projects.first(where: { $0.isLunchTimer }),
+           let lunchTimer = projectTimers.first(where: { $0.projectId == lunchProject.id }),
+           lunchTimer.isRunning {
+            stopProject(lunchProject.id)
         }
     }
     

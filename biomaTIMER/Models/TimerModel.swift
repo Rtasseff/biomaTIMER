@@ -25,19 +25,22 @@ struct ProjectData: Identifiable, Codable, Equatable {
     var name: String
     var colorHex: String
     var createdAt: Date
+    var isLunchTimer: Bool
     
-    init(name: String, colorHex: String = "#007AFF") {
+    init(name: String, colorHex: String = "#007AFF", isLunchTimer: Bool = false) {
         self.id = UUID()
         self.name = name
         self.colorHex = colorHex
         self.createdAt = Date()
+        self.isLunchTimer = isLunchTimer
     }
     
-    init(id: UUID, name: String, colorHex: String, createdAt: Date) {
+    init(id: UUID, name: String, colorHex: String, createdAt: Date, isLunchTimer: Bool = false) {
         self.id = id
         self.name = name
         self.colorHex = colorHex
         self.createdAt = createdAt
+        self.isLunchTimer = isLunchTimer
     }
     
     var color: Color {
