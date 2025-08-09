@@ -31,6 +31,7 @@ struct MainTimerView: View {
                         .padding(.horizontal, 30)
                         .padding(.vertical, 15)
                     }
+                    .accessibilityIdentifier(timerService.timerState.isRunning ? "Stop" : "Start")
                     .buttonStyle(.borderedProminent)
                     .controlSize(.large)
                 }
@@ -133,7 +134,6 @@ struct ProjectRowView: View {
                     .foregroundColor(isRunning ? .orange : .blue)
                     .font(.title3)
             }
-            .disabled(!timerService.timerState.isRunning && !isRunning)
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 12)

@@ -49,7 +49,7 @@ struct TimerLiveActivityLiveActivity: Widget {
                 if let projectName = context.state.activeProjectName {
                     HStack {
                         Circle()
-                            .fill(Color(hex: context.state.activeProjectColor ?? "007AFF"))
+                            .fill(Color(hex: context.state.activeProjectColor ?? "#007AFF"))
                             .frame(width: 8, height: 8)
                         Text(projectName)
                             .font(.caption)
@@ -85,7 +85,7 @@ struct TimerLiveActivityLiveActivity: Widget {
                     if let projectName = context.state.activeProjectName {
                         HStack {
                             Circle()
-                                .fill(Color(hex: context.state.activeProjectColor ?? "007AFF"))
+                                .fill(Color(hex: context.state.activeProjectColor ?? "#007AFF"))
                                 .frame(width: 6, height: 6)
                             Text(projectName)
                                 .font(.caption2)

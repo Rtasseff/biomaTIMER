@@ -33,7 +33,9 @@ class TimerService: ObservableObject {
         stopAllProjectTimers()
         stopUITimer()
         
-        endCurrentTimeEntry()
+        // End any open project entries first, then the work entry.
+        endOpenProjectEntries()
+        endOpenWorkEntries()
         backgroundService.endLiveActivity()
     }
     
@@ -47,7 +49,9 @@ class TimerService: ObservableObject {
             startWorkTimer()
         }
         
+        // Stop other projects and close any open project entries before starting a new one.
         stopAllProjectTimers()
+        endOpenProjectEntries()
         
         if let index = projectTimers.firstIndex(where: { $0.projectId == projectId }) {
             projectTimers[index].isRunning = true
@@ -71,7 +75,8 @@ class TimerService: ObservableObject {
             timerState.activeProject = nil
         }
         
-        endCurrentTimeEntry()
+        // Only end the open project entry for this project.
+        endOpenProjectEntries(projectId: projectId)
     }
     
     private func stopAllProjectTimers() {
@@ -79,7 +84,7 @@ class TimerService: ObservableObject {
             projectTimers[index].isRunning = false
         }
         timerState.activeProject = nil
-        endCurrentTimeEntry()
+        // Do not end work entries here; only close project entries when switching.
     }
     
     private func startUITimer() {
@@ -117,7 +122,8 @@ class TimerService: ObservableObject {
         let tomorrow = calendar.date(byAdding: .day, value: 1, to: today)!
         
         let request: NSFetchRequest<TimeEntry> = TimeEntry.fetchRequest()
-        request.predicate = NSPredicate(format: "startTime >= %@ AND startTime < %@", today as NSDate, tomorrow as NSDate)
+        // Only include main work time entries to avoid double-counting project time.
+        request.predicate = NSPredicate(format: "isWorkTime == YES AND startTime >= %@ AND startTime < %@", today as NSDate, tomorrow as NSDate)
         
         do {
             let entries = try context.fetch(request)
@@ -127,13 +133,19 @@ class TimerService: ObservableObject {
                 }
             }
             
-            // Add current session time if timer is running
-            let currentSession = getCurrentSessionTime()
+            // Add current session time for today only, if timer is running.
+            let currentSession = clampedCurrentWorkSessionSince(today: today)
             return completedTime + currentSession
         } catch {
             print("Error fetching daily total: \(error)")
-            return getCurrentSessionTime()
+            return clampedCurrentWorkSessionSince(today: today)
         }
+    }
+    
+    private func clampedCurrentWorkSessionSince(today: Date) -> TimeInterval {
+        guard timerState.isRunning, let startTime = timerState.startTime else { return 0 }
+        let start = max(startTime, today)
+        return Date().timeIntervalSince(start)
     }
     
     func getCurrentSessionTime() -> TimeInterval {
@@ -160,10 +172,11 @@ class TimerService: ObservableObject {
                 }
             }
             
-            // Add current session time if this project timer is running
+            // Add today's portion of the current project session, if running.
             if let projectTimer = projectTimers.first(where: { $0.projectId == projectId }),
                projectTimer.isRunning, let startTime = projectTimer.startTime {
-                let currentSession = Date().timeIntervalSince(startTime)
+                let start = max(startTime, today)
+                let currentSession = Date().timeIntervalSince(start)
                 return completedTime + currentSession
             }
             
@@ -197,19 +210,34 @@ class TimerService: ObservableObject {
             }
         }
         
-        try? context.save()
+        do { try context.save() } catch { print("Failed to save new time entry: \(error)") }
     }
     
-    private func endCurrentTimeEntry() {
+    // End only the open work entry (if any).
+    private func endOpenWorkEntries() {
         let request: NSFetchRequest<TimeEntry> = TimeEntry.fetchRequest()
-        request.predicate = NSPredicate(format: "endTime == nil")
+        request.predicate = NSPredicate(format: "endTime == nil AND isWorkTime == YES")
         request.sortDescriptors = [NSSortDescriptor(keyPath: \TimeEntry.startTime, ascending: false)]
         
         if let entries = try? context.fetch(request) {
-            for entry in entries {
-                entry.endTime = Date()
-            }
-            try? context.save()
+            for entry in entries { entry.endTime = Date() }
+            do { try context.save() } catch { print("Failed to end work entries: \(error)") }
+        }
+    }
+    
+    // End open project entries, optionally scoped to a specific project.
+    private func endOpenProjectEntries(projectId: UUID? = nil) {
+        let request: NSFetchRequest<TimeEntry> = TimeEntry.fetchRequest()
+        if let pid = projectId {
+            request.predicate = NSPredicate(format: "endTime == nil AND isWorkTime == NO AND project.id == %@", pid as CVarArg)
+        } else {
+            request.predicate = NSPredicate(format: "endTime == nil AND isWorkTime == NO")
+        }
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \TimeEntry.startTime, ascending: false)]
+        
+        if let entries = try? context.fetch(request) {
+            for entry in entries { entry.endTime = Date() }
+            do { try context.save() } catch { print("Failed to end project entries: \(error)") }
         }
     }
     
@@ -220,7 +248,7 @@ class TimerService: ObservableObject {
         project.colorHex = colorHex
         project.createdAt = Date()
         
-        try? context.save()
+        do { try context.save() } catch { print("Failed to save project: \(error)") }
         loadProjects()
     }
     
@@ -230,7 +258,7 @@ class TimerService: ObservableObject {
         
         if let project = try? context.fetch(request).first {
             context.delete(project)
-            try? context.save()
+            do { try context.save() } catch { print("Failed to delete project: \(error)") }
             loadProjects()
             
             projectTimers.removeAll { $0.projectId == projectId }

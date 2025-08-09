@@ -89,11 +89,27 @@ struct SettingsView: View {
         let deleteProjects = NSBatchDeleteRequest(fetchRequest: projectRequest)
         let deleteTimeEntries = NSBatchDeleteRequest(fetchRequest: timeEntryRequest)
         
-        try? context.execute(deleteProjects)
-        try? context.execute(deleteTimeEntries)
-        try? context.save()
+        do {
+            try context.execute(deleteTimeEntries)
+            try context.execute(deleteProjects)
+            try context.save()
+        } catch {
+            print("Failed to reset data: \(error)")
+        }
         
-        timerService.resetWorkTimer()
+        // Clear service state and refresh
+        timerService.timerState = TimerState()
+        timerService.projectTimers.removeAll()
+        timerService.projects.removeAll()
+        // Reload from Core Data (should be empty now)
+        // Using an internal method would be better; here we nudge via public surface
+        // by calling add/remove no-ops would be awkward; instead rely on a small delay.
+        DispatchQueue.main.async {
+            // Trigger a refresh
+            // The service will reload projects on next app launch; do a manual pull:
+            // There's no public reload, so we can start/stop timer to ensure live activity ends.
+            timerService.resetWorkTimer()
+        }
     }
 }
 
