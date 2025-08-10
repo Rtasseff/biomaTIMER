@@ -68,7 +68,7 @@ struct SettingsView: View {
                 resetAllData()
             }
         } message: {
-            Text("This will permanently delete all timer data and projects. This action cannot be undone.")
+            Text("This will permanently delete all timer data but keep your projects. This action cannot be undone.")
         }
         .alert("Delete Project", isPresented: $showingDeleteProjectAlert) {
             Button("Cancel", role: .cancel) { }
@@ -86,33 +86,23 @@ struct SettingsView: View {
     }
     
     private func resetAllData() {
-        let projectRequest: NSFetchRequest<NSFetchRequestResult> = Project.fetchRequest()
+        // Only delete time entries, keep projects
         let timeEntryRequest: NSFetchRequest<NSFetchRequestResult> = TimeEntry.fetchRequest()
-        
-        let deleteProjects = NSBatchDeleteRequest(fetchRequest: projectRequest)
         let deleteTimeEntries = NSBatchDeleteRequest(fetchRequest: timeEntryRequest)
         
         do {
             try context.execute(deleteTimeEntries)
-            try context.execute(deleteProjects)
             try context.save()
         } catch {
-            print("Failed to reset data: \(error)")
+            print("Failed to reset time entries: \(error)")
         }
         
-        // Clear service state and refresh
+        // Clear service state but keep projects
         timerService.timerState = TimerState()
         timerService.projectTimers.removeAll()
-        timerService.projects.removeAll()
-        // Reload from Core Data (should be empty now)
-        // Using an internal method would be better; here we nudge via public surface
-        // by calling add/remove no-ops would be awkward; instead rely on a small delay.
-        DispatchQueue.main.async {
-            // Trigger a refresh
-            // The service will reload projects on next app launch; do a manual pull:
-            // There's no public reload, so we can start/stop timer to ensure live activity ends.
-            timerService.resetWorkTimer()
-        }
+        
+        // Stop any running timers and live activities
+        timerService.resetWorkTimer()
     }
 }
 

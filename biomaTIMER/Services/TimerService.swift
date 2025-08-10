@@ -414,19 +414,37 @@ class TimerService: ObservableObject {
     private func updateLiveActivity() {
         var activeProjectName: String?
         var activeProjectColor: String?
+        var isAnyTimerRunning = false
+        var effectiveTimerState = timerState
+        var sessionTime = getCurrentSessionTime()
         
         if let activeProjectId = timerState.activeProject,
            let project = projects.first(where: { $0.id == activeProjectId }) {
             activeProjectName = project.name
             activeProjectColor = project.colorHex
+            isAnyTimerRunning = true
+            
+            // For lunch timer, create a virtual timer state since work timer isn't running
+            if project.isLunchTimer && !timerState.isRunning {
+                if let projectTimer = projectTimers.first(where: { $0.projectId == activeProjectId }) {
+                    effectiveTimerState = TimerState(
+                        isRunning: projectTimer.isRunning,
+                        startTime: projectTimer.startTime,
+                        totalSeconds: projectTimer.totalSeconds,
+                        activeProject: activeProjectId
+                    )
+                    sessionTime = getCurrentProjectSessionTime(activeProjectId)
+                }
+            }
         }
         
-        if timerState.isRunning {
+        // Show live activity if work timer OR any project timer (including lunch) is running
+        if timerState.isRunning || (timerState.activeProject != nil && isAnyTimerRunning) {
             backgroundService.startLiveActivity(
-                timerState: timerState,
+                timerState: effectiveTimerState,
                 activeProjectName: activeProjectName,
                 activeProjectColor: activeProjectColor,
-                currentSessionTime: getCurrentSessionTime(),
+                currentSessionTime: sessionTime,
                 dailyTotalTime: getDailyTotal()
             )
         } else {

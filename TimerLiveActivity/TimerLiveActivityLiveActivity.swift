@@ -27,10 +27,17 @@ struct TimerLiveActivityLiveActivity: Widget {
                         Text("Session")
                             .font(.caption)
                             .foregroundColor(.secondary)
-                        Text(context.state.currentSessionTime.formattedDuration())
-                            .font(.title2)
-                            .fontWeight(.bold)
-                            .fontDesign(.monospaced)
+                        if context.state.isRunning {
+                            Text(context.state.startTime, style: .timer)
+                                .font(.title2)
+                                .fontWeight(.bold)
+                                .fontDesign(.monospaced)
+                        } else {
+                            Text(context.state.currentSessionTime.formattedDuration())
+                                .font(.title2)
+                                .fontWeight(.bold)
+                                .fontDesign(.monospaced)
+                        }
                     }
                     
                     Spacer()
@@ -65,9 +72,15 @@ struct TimerLiveActivityLiveActivity: Widget {
                     VStack(alignment: .leading) {
                         Text("Session")
                             .font(.caption2)
-                        Text(context.state.currentSessionTime.formattedDuration())
-                            .font(.title3)
-                            .fontWeight(.bold)
+                        if context.state.isRunning {
+                            Text(context.state.startTime, style: .timer)
+                                .font(.title3)
+                                .fontWeight(.bold)
+                        } else {
+                            Text(context.state.currentSessionTime.formattedDuration())
+                                .font(.title3)
+                                .fontWeight(.bold)
+                        }
                     }
                 }
                 

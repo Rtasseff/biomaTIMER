@@ -76,7 +76,9 @@ class BackgroundTaskService: ObservableObject {
         )
         
         do {
-            let content = ActivityContent(state: contentState, staleDate: nil)
+            // Set stale date to 30 seconds from now to ensure frequent updates
+            let staleDate = Date().addingTimeInterval(30)
+            let content = ActivityContent(state: contentState, staleDate: staleDate)
             currentActivity = try Activity<TimerActivityAttributes>.request(
                 attributes: attributes,
                 content: content,
@@ -101,7 +103,9 @@ class BackgroundTaskService: ObservableObject {
         )
         
         Task {
-            let content = ActivityContent(state: contentState, staleDate: nil)
+            // Set stale date to 30 seconds from now to ensure frequent updates
+            let staleDate = Date().addingTimeInterval(30)
+            let content = ActivityContent(state: contentState, staleDate: staleDate)
             await activity.update(content)
         }
     }
