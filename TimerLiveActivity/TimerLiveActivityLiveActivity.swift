@@ -28,10 +28,12 @@ struct TimerLiveActivityLiveActivity: Widget {
                             .font(.caption)
                             .foregroundColor(.secondary)
                         if context.state.isRunning {
-                            Text(context.state.startTime, style: .timer)
+                            Text(timerInterval: context.state.startTime...Date.distantFuture, countsDown: false)
                                 .font(.title2)
                                 .fontWeight(.bold)
                                 .fontDesign(.monospaced)
+                                .multilineTextAlignment(.center)
+                                .monospacedDigit()
                         } else {
                             Text(context.state.currentSessionTime.formattedDuration())
                                 .font(.title2)
@@ -73,9 +75,13 @@ struct TimerLiveActivityLiveActivity: Widget {
                         Text("Session")
                             .font(.caption2)
                         if context.state.isRunning {
-                            Text(context.state.startTime, style: .timer)
+                            Text(timerInterval: context.state.startTime...Date.distantFuture, countsDown: false)
                                 .font(.title3)
                                 .fontWeight(.bold)
+                                .fontDesign(.monospaced)
+                                .multilineTextAlignment(.center)
+                                .monospacedDigit()
+                                .contentTransition(.numericText())
                         } else {
                             Text(context.state.currentSessionTime.formattedDuration())
                                 .font(.title3)
