@@ -8,6 +8,7 @@ class TimerService: ObservableObject {
     @Published var projects: [ProjectData] = []
     
     private var timer: Timer?
+    private var liveActivityMidnightTimer: Timer?
     private var cancellables = Set<AnyCancellable>()
     private let context: NSManagedObjectContext
     private let backgroundService = BackgroundTaskService.shared
@@ -29,6 +30,7 @@ class TimerService: ObservableObject {
         
         createTimeEntry(isWorkTime: true)
         startUITimer()
+        scheduleLiveActivityMidnightRefresh()
         updateLiveActivity()
     }
     
@@ -36,6 +38,7 @@ class TimerService: ObservableObject {
         timerState.isRunning = false
         stopAllProjectTimers()
         stopUITimer()
+        invalidateLiveActivityMidnightRefresh()
         
         // End any open project entries first, then the work entry.
         endOpenProjectEntries()
@@ -84,6 +87,7 @@ class TimerService: ObservableObject {
         // Start UI timer for lunch timer since work timer won't be running
         if isLunchTimer {
             startUITimer()
+            scheduleLiveActivityMidnightRefresh()
         }
         
         updateLiveActivity()
@@ -101,6 +105,7 @@ class TimerService: ObservableObject {
         // If this is the lunch timer and work timer isn't running, stop UI timer
         if isProjectLunchTimer(projectId) && !timerState.isRunning {
             stopUITimer()
+            invalidateLiveActivityMidnightRefresh()
         }
         
         // Only end the open project entry for this project.
@@ -131,6 +136,27 @@ class TimerService: ObservableObject {
         timer = nil
     }
     
+    private func scheduleLiveActivityMidnightRefresh() {
+        invalidateLiveActivityMidnightRefresh()
+        let calendar = Calendar.current
+        let now = Date()
+        var components = calendar.dateComponents([.year, .month, .day], from: now)
+        components.day = (components.day ?? 0) + 1
+        let nextMidnight = calendar.date(from: components) ?? calendar.startOfDay(for: now).addingTimeInterval(24 * 3600)
+        let timer = Timer(fireAt: nextMidnight, interval: 0, target: BlockOperation { [weak self] in
+            self?.updateLiveActivity()
+            // Reschedule for the following day if still needed
+            self?.scheduleLiveActivityMidnightRefresh()
+        }, selector: #selector(Operation.main), userInfo: nil, repeats: false)
+        RunLoop.current.add(timer, forMode: .common)
+        liveActivityMidnightTimer = timer
+    }
+    
+    private func invalidateLiveActivityMidnightRefresh() {
+        liveActivityMidnightTimer?.invalidate()
+        liveActivityMidnightTimer = nil
+    }
+    
     private func updateTimers() {
         let now = Date()
         
@@ -145,7 +171,8 @@ class TimerService: ObservableObject {
                 projectTimers[index].totalSeconds = now.timeIntervalSince(projectStartTime)
             }
         }
-        updateLiveActivity()
+        
+        // Do NOT call updateLiveActivity() here every second to avoid throttling and battery drain.
     }
     
     func getDailyTotal() -> TimeInterval {

@@ -28,7 +28,7 @@ struct TimerLiveActivityLiveActivity: Widget {
                             .font(.caption)
                             .foregroundColor(.secondary)
                         if context.state.isRunning {
-                            Text(timerInterval: context.state.startTime...Date.distantFuture, countsDown: false)
+                            Text(context.state.startTime, style: .timer)
                                 .font(.title2)
                                 .fontWeight(.bold)
                                 .fontDesign(.monospaced)
@@ -48,10 +48,21 @@ struct TimerLiveActivityLiveActivity: Widget {
                         Text("Daily Total")
                             .font(.caption)
                             .foregroundColor(.secondary)
-                        Text(context.state.dailyTotalTime.formattedDuration())
-                            .font(.title2)
-                            .fontWeight(.bold)
-                            .fontDesign(.monospaced)
+                        if context.state.isRunning {
+                            // Base = dailyTotalAtPush - currentSessionAtPush; Anchor = startTime - base
+                            let base = max(0, context.state.dailyTotalTime - context.state.currentSessionTime)
+                            let anchorStart = context.state.startTime.addingTimeInterval(-base)
+                            Text(anchorStart, style: .timer)
+                                .font(.title2)
+                                .fontWeight(.bold)
+                                .fontDesign(.monospaced)
+                                .monospacedDigit()
+                        } else {
+                            Text(context.state.dailyTotalTime.formattedDuration())
+                                .font(.title2)
+                                .fontWeight(.bold)
+                                .fontDesign(.monospaced)
+                        }
                     }
                 }
                 
@@ -75,7 +86,7 @@ struct TimerLiveActivityLiveActivity: Widget {
                         Text("Session")
                             .font(.caption2)
                         if context.state.isRunning {
-                            Text(timerInterval: context.state.startTime...Date.distantFuture, countsDown: false)
+                            Text(context.state.startTime, style: .timer)
                                 .font(.title3)
                                 .fontWeight(.bold)
                                 .fontDesign(.monospaced)
@@ -94,9 +105,18 @@ struct TimerLiveActivityLiveActivity: Widget {
                     VStack(alignment: .trailing) {
                         Text("Daily")
                             .font(.caption2)
-                        Text(context.state.dailyTotalTime.formattedDuration())
-                            .font(.title3)
-                            .fontWeight(.bold)
+                        if context.state.isRunning {
+                            let base = max(0, context.state.dailyTotalTime - context.state.currentSessionTime)
+                            let anchorStart = context.state.startTime.addingTimeInterval(-base)
+                            Text(anchorStart, style: .timer)
+                                .font(.title3)
+                                .fontWeight(.bold)
+                                .monospacedDigit()
+                        } else {
+                            Text(context.state.dailyTotalTime.formattedDuration())
+                                .font(.title3)
+                                .fontWeight(.bold)
+                        }
                     }
                 }
                 
@@ -115,9 +135,18 @@ struct TimerLiveActivityLiveActivity: Widget {
                 Image(systemName: context.state.isRunning ? "play.circle.fill" : "pause.circle.fill")
                     .foregroundColor(context.state.isRunning ? .green : .orange)
             } compactTrailing: {
-                Text(context.state.dailyTotalTime.formattedDuration())
-                    .font(.caption2)
-                    .fontWeight(.bold)
+                if context.state.isRunning {
+                    let base = max(0, context.state.dailyTotalTime - context.state.currentSessionTime)
+                    let anchorStart = context.state.startTime.addingTimeInterval(-base)
+                    Text(anchorStart, style: .timer)
+                        .font(.caption2)
+                        .fontWeight(.bold)
+                        .monospacedDigit()
+                } else {
+                    Text(context.state.dailyTotalTime.formattedDuration())
+                        .font(.caption2)
+                        .fontWeight(.bold)
+                }
             } minimal: {
                 Image(systemName: "timer")
                     .foregroundColor(.blue)
