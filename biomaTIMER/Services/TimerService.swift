@@ -502,6 +502,7 @@ class TimerService: ObservableObject {
         var isAnyTimerRunning = false
         var effectiveTimerState = timerState
         var sessionTime = getCurrentSessionTime()
+        var dailyTotalTimeToReport: TimeInterval = getDailyTotal()
         
         if let activeProjectId = timerState.activeProject,
            let project = projects.first(where: { $0.id == activeProjectId }) {
@@ -520,6 +521,8 @@ class TimerService: ObservableObject {
                     )
                     sessionTime = getCurrentProjectSessionTime(activeProjectId)
                 }
+                // When lunch is running, show lunch daily total on the lock screen
+                dailyTotalTimeToReport = getProjectDailyTotal(activeProjectId)
             }
         }
         
@@ -530,7 +533,7 @@ class TimerService: ObservableObject {
                 activeProjectName: activeProjectName,
                 activeProjectColor: activeProjectColor,
                 currentSessionTime: sessionTime,
-                dailyTotalTime: getDailyTotal()
+                dailyTotalTime: dailyTotalTimeToReport
             )
         } else {
             backgroundService.endLiveActivity()
