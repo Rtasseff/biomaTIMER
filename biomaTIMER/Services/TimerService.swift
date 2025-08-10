@@ -1,6 +1,7 @@
 import Foundation
 import Combine
 import CoreData
+import UIKit
 
 class TimerService: ObservableObject {
     @Published var timerState = TimerState()
@@ -9,6 +10,8 @@ class TimerService: ObservableObject {
     
     private var timer: Timer?
     private var liveActivityMidnightTimer: Timer?
+    private var liveActivityHeartbeatTimer: Timer?
+    private var liveActivityKickTimer: Timer?
     private var cancellables = Set<AnyCancellable>()
     private let context: NSManagedObjectContext
     private let backgroundService = BackgroundTaskService.shared
@@ -17,6 +20,21 @@ class TimerService: ObservableObject {
         self.context = context
         loadProjects()
         createLunchTimerIfNeeded()
+        
+        // Refresh Live Activity when app returns to foreground (helps re-anchor timers)
+        NotificationCenter.default.addObserver(self, selector: #selector(appWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc private func appWillEnterForeground() {
+        // Nudge Live Activity on foreground
+        if timerState.isRunning || timerState.activeProject != nil {
+            updateLiveActivity()
+            scheduleLiveActivityKick()
+        }
     }
     
     func startWorkTimer() {
@@ -32,6 +50,8 @@ class TimerService: ObservableObject {
         startUITimer()
         scheduleLiveActivityMidnightRefresh()
         updateLiveActivity()
+        scheduleLiveActivityKick()
+        scheduleLiveActivityHeartbeat()
     }
     
     func stopWorkTimer() {
@@ -39,6 +59,8 @@ class TimerService: ObservableObject {
         stopAllProjectTimers()
         stopUITimer()
         invalidateLiveActivityMidnightRefresh()
+        invalidateLiveActivityHeartbeat()
+        invalidateLiveActivityKick()
         
         // End any open project entries first, then the work entry.
         endOpenProjectEntries()
@@ -91,6 +113,8 @@ class TimerService: ObservableObject {
         }
         
         updateLiveActivity()
+        scheduleLiveActivityKick()
+        scheduleLiveActivityHeartbeat()
     }
     
     func stopProject(_ projectId: UUID) {
@@ -106,11 +130,14 @@ class TimerService: ObservableObject {
         if isProjectLunchTimer(projectId) && !timerState.isRunning {
             stopUITimer()
             invalidateLiveActivityMidnightRefresh()
+            invalidateLiveActivityHeartbeat()
+            invalidateLiveActivityKick()
         }
         
         // Only end the open project entry for this project.
         endOpenProjectEntries(projectId: projectId)
         updateLiveActivity()
+        scheduleLiveActivityKick()
     }
     
     private func stopAllProjectTimers() {
@@ -155,6 +182,37 @@ class TimerService: ObservableObject {
     private func invalidateLiveActivityMidnightRefresh() {
         liveActivityMidnightTimer?.invalidate()
         liveActivityMidnightTimer = nil
+    }
+    
+    private func scheduleLiveActivityHeartbeat() {
+        invalidateLiveActivityHeartbeat()
+        // Nudge ActivityKit infrequently to keep UI fresh without battery impact
+        liveActivityHeartbeatTimer = Timer.scheduledTimer(withTimeInterval: 60.0, repeats: true) { [weak self] _ in
+            self?.updateLiveActivity()
+        }
+        if let timer = liveActivityHeartbeatTimer {
+            RunLoop.current.add(timer, forMode: .common)
+        }
+    }
+    
+    private func invalidateLiveActivityHeartbeat() {
+        liveActivityHeartbeatTimer?.invalidate()
+        liveActivityHeartbeatTimer = nil
+    }
+    
+    private func scheduleLiveActivityKick() {
+        invalidateLiveActivityKick()
+        liveActivityKickTimer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
+            self?.updateLiveActivity()
+        }
+        if let timer = liveActivityKickTimer {
+            RunLoop.current.add(timer, forMode: .common)
+        }
+    }
+    
+    private func invalidateLiveActivityKick() {
+        liveActivityKickTimer?.invalidate()
+        liveActivityKickTimer = nil
     }
     
     private func updateTimers() {
